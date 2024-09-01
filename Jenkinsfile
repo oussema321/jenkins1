@@ -22,6 +22,11 @@
 pipeline {
     agent any 
 
+    environment {
+        MY_VAR = 'une variable'
+        MY_NUMBER = 123
+    }
+
     stages {
         stage('build') {
             steps {
@@ -30,6 +35,9 @@ pipeline {
                 echo ("ci: ${env.CI}")
                 echo ("Build_number: ${env.BUILD_NUMBER}")
                 echo ("Jenkins_url: ${env.JENKINS_URL}")
+                echo ("MY_VAR: ${env.MY_VAR}")
+                echo ("MY_NUMBER: ${env.MY_NUMBER}")
+                sh 'printenv'
             }
         }
     }
