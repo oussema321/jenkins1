@@ -24,11 +24,13 @@ pipeline {
 
     stages {
         stage('build') {
-            echo ("Branch_name: ${ env.BRANCH_NAME}")
-            echo("Branch_is_primary: ${ env.BRANCH_IS_PRIMARY}")
-            echo("ci: ${ env.CI}")
-            echo("Build_number: ${ env.BUILD_NUMBER}")
-            echo("Jenkins_url: ${ env.JENKINS_URL}")
+            steps {
+                echo ("Branch_name: ${env.BRANCH_NAME}")
+                echo ("Branch_is_primary: ${env.BRANCH_IS_PRIMARY}")
+                echo ("ci: ${env.CI}")
+                echo ("Build_number: ${env.BUILD_NUMBER}")
+                echo ("Jenkins_url: ${env.JENKINS_URL}")
+            }
         }
     }
 }
